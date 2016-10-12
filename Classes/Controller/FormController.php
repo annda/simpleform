@@ -271,6 +271,7 @@ class FormController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
     private function stayOnCurrentStep() {
         $this->populateFreshestFormData($this->sessionDataHandler->getFormDataFromCurrentStep(), $this->formDataHandler->getFormDataFromCurrentStep());
         $this->view->assign('step', $this->stepHandler->getCurrentStep());
+        $this->view->assign('validationErrors', $this->validationErrorHandler->getValidationErrorsFromCurrentStep());
         $this->view->assign('token', $this->csrfProtection->generateCsrfToken());
     }
 
